@@ -1,0 +1,13 @@
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>College Hunter</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <h1>The College Hunter</h1>
+        <h2>With so many options to consider, choosing the right college for you can be overwhelming.  The College Hunter is here to help you find the perfect school in your desired region based on whats important to you.</h2>
+        <form class="user-inputs">
+            <label for="city-zip">Enter zip code:</label>
+            <input class="city-zip" type="text" required>
+            <br>
+            <label for="miles-radius">Enter distance radiance:</label>
+            <input class="miles-radius" type="number" value="25" required>
+            <br>
+            <!--<label for="max-results">Enter maximum number of colleges to return:</label>
+            <input class="max-results" type="number" value="10" required>-->
+            <br>
+            <button type="submit" class="get-results">View Colleges</button>
+        </form>
+        <section class="results hidden">
+            <h3>View and Compare Colleges:</h3>
+                <ul class="results-list">
+                </ul>
+        </section>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
