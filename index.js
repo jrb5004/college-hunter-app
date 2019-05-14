@@ -4,7 +4,7 @@ const searchURL = 'https://api.data.gov/ed/collegescorecard/v1/schools';
 const scorecardApiKey = 'SzC7hjHyOhLpPQI5hy0Qfm6Ed5PLKtNWCsnfHeIY';
 
 function getColleges(zip, radius) {
-    const paramString = `api_key=${scorecardApiKey}&school.degrees_awarded.predominant=3&_zip=${zip}&_distance=${radius}mi&_fields=id,school.name,school.city,school.state,id,latest.student.size,school.school_url,latest.admissions.sat_scores.average.overall,latest.admissions.admission_rate.overall,latest.cost.tuition.in_state,latest.cost.tuition.out_of_state,latest.completion.rate_suppressed.four_year_100_pooled,latest.earnings.6_yrs_after_entry.working_not_enrolled.mean_earnings,location.lon,location.lat`;
+    const paramString = `api_key=${scorecardApiKey}&school.degrees_awarded.predominant=3&_zip=${zip}&_distance=${radius}mi&latest.student.size__range=1500..&_per_page=100&_sort=latest.student.size:desc&_fields=id,school.name,school.city,school.state,id,latest.student.size,school.school_url,latest.admissions.sat_scores.average.overall,latest.admissions.admission_rate.overall,latest.cost.tuition.in_state,latest.cost.tuition.out_of_state,latest.completion.rate_suppressed.four_year_100_pooled,latest.earnings.6_yrs_after_entry.working_not_enrolled.mean_earnings,location.lon,location.lat`;
     const url = searchURL + '?' + paramString;
 
     fetch(url)
