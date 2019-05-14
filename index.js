@@ -23,13 +23,36 @@ function getColleges(zip, radius) {
 }
 
 function displayResults(responseJson) {
-    $('.results').empty();
+    $('.results-table').empty();
     console.log(responseJson);
+    $('.results-table').append(
+            `<tr>
+                <td></td>
+                <th scope="col">Location</th>
+                <th scope="col">Acceptance Rate</th>
+                <th scope="col">Average SAT Score</th>
+                <th scope="col">Undgraduate Students</th>
+                <th scope="col">Yearly Tuition (in-state)</th>
+                <th scope="col">Yearly Tuition (out-of-state)</th>
+                <th scope="col">4 Year Completion Rate</th>
+                <th scope="col">Average Salary - Recent Grads</th>
+            </tr>`)
     for (let i = 0; i < responseJson.results.length; i++) {
-        $('.results-list').append(
-            `<li>
+        $('.results-table').append(
+            `<tr>
+                <th scope="row"><a href="${responseJson.results[i]['school.school.url']}">${responseJson.results[i]['school.name']}</a></th>
+                <td>${responseJson.results[i]['school.city']}, ${responseJson.results[i]['school.state']}</td>
+                <td>${responseJson.results[i]['latest.admissions.admission_rate.overall']}</td>
+                <td>${responseJson.results[i]['latest.admissions.sat_scores.average.overall']}</td>
+                <td>${responseJson.results[i]['latest.student.size']}</td>
+                <td>${responseJson.results[i]['latest.cost.tuition.in_state']}</td>
+                <td>${responseJson.results[i]['latest.cost.tuition.out_of_state']}</td>
+                <td>${responseJson.results[i]['latest.completion.rate_suppressed.four_year_100_pooled']}</td>
+                <td>${responseJson.results[i]['latest.earnings.6_yrs_after_entry.working_not_enrolled.mean_earnings']}</td>
+            </tr>`
+            /*`<li>
             <p>Location: ${responseJson.results[i]['school.city']}, ${responseJson.results[i]['school.state']}</p>
-            </li>`
+            </li>`*/
         )};
     $('.results').removeClass('hidden');
 }

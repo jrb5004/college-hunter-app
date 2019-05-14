@@ -11,3 +11,13 @@ input {
 .hidden {
     display: none;
 }
+
+th {
+    text-align: left;
+    padding-right: 5px;
+}
+
+td {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}

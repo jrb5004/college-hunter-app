@@ -1,0 +1,25 @@
+Name: school_name
+
+Location(city, state): school.city, school.state
+
+Acceptance Rate: latest.admissions.admission_rate.overall
+
+SAT Score: latest.admissions.sat_scores.average.overall
+
+Number of Undergraduate Students = latest.student.size
+
+Tuition (in state): latest.cost.tuition.in_state
+
+Tuition (out of state): latest.cost.tuition.out_of_state
+
+Completion Rate: latest.completion.rate_suppressed.four_year_100_pooled
+
+Earnings new grads(6 years after enrolling): latest.earnings.6_yrs_after_entry.working_not_enrolled.mean_earnings
+
+URL: school.school_url
+
+Degree type (=bach?) **school.degrees_awarded.predominant=3** --> filter
+
+Public, Private, etc: 
+
+Location(lat,long): location.lon, location.lat
