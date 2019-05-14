@@ -40,7 +40,7 @@ function displayResults(responseJson) {
     for (let i = 0; i < responseJson.results.length; i++) {
         $('.results-table').append(
             `<tr>
-                <th scope="row"><a href="${responseJson.results[i]['school.school.url']}">${responseJson.results[i]['school.name']}</a></th>
+                <th scope="row"><a href="http://${responseJson.results[i]['school.school_url']}" target="_blank">${responseJson.results[i]['school.name']}</a></th>
                 <td>${responseJson.results[i]['school.city']}, ${responseJson.results[i]['school.state']}</td>
                 <td>${responseJson.results[i]['latest.admissions.admission_rate.overall']}</td>
                 <td>${responseJson.results[i]['latest.admissions.sat_scores.average.overall']}</td>
@@ -50,9 +50,6 @@ function displayResults(responseJson) {
                 <td>${responseJson.results[i]['latest.completion.rate_suppressed.four_year_100_pooled']}</td>
                 <td>${responseJson.results[i]['latest.earnings.6_yrs_after_entry.working_not_enrolled.mean_earnings']}</td>
             </tr>`
-            /*`<li>
-            <p>Location: ${responseJson.results[i]['school.city']}, ${responseJson.results[i]['school.state']}</p>
-            </li>`*/
         )};
     $('.results').removeClass('hidden');
 }
