@@ -3,29 +3,35 @@
     <head>
         <title>College Hunter</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Karla|Permanent+Marker" rel="stylesheet">
     </head>
     <body>
-        <h1>The College Hunter</h1>
-        <h2>With so many options to consider, choosing the right college for you can be overwhelming.  The College Hunter is here to help you find the perfect school in your desired region based on whats important to you.</h2>
+        <header>
+            <h1>The College Hunter</h1>
+            <div class="banner">
+                <h2 class="banner-heading top">With so many options to consider, choosing the right college for you can be <span class="overwhelm">overwhelming!</span></h2>
+                <div class="home-image"><img src="images/questions1.jpg" alt="banner image"></div>
+                <h2 class="banner-heading bottom"><span class="college-hunter">The College Hunter</span> is here to help you find the perfect school in your desired region based on <span class="important">whats important to you.</span></h2>
+            </div>    
+        </header>
+        <main class="home">
         <form class="user-inputs">
             <label for="city-zip">Enter zip code:</label>
-            <input class="city-zip" type="text" required>
-            <br>
+            <input class="city-zip" placeholder="ex. 07110" type="text" required>
+            <br>  
             <label for="miles-radius">Enter distance radius:</label>
-            <input class="miles-radius" type="number" value="25" required>
-            <br>
-            <!--<label for="max-results">Enter maximum number of colleges to return:</label>
-            <input class="max-results" type="number" value="10" required>-->
-            <br>
-            <button type="submit" class="get-results">View Colleges</button>
+            <input class="miles-radius" type="number" value="10" required>
+            <button type="submit" class="get-results">Find Colleges!</button>
         </form>
         <section class="results hidden">
             <h3>View and Compare Colleges:</h3>
-                <div id="map"></div>
-                <table class="results-table">
-                </table>
+            <div id="map"></div>
+            <table class="results-table">
+            </table>
+            <button type="submit" class="new-search">New Search</button>
         </section>
         <p class="error-message"></p>
+        </main>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="index.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_sY_dRcWOXDYugaPqd7QDTbXviHFnLVc&callback=initMap"></script>

@@ -18,6 +18,7 @@ function getColleges(zip, radius) {
         throw new Error(response.statusText);
     })
     .then(responseJson => {
+        initMap(responseJson);
         displayResults(responseJson);
     })
     .catch(err => {
@@ -27,6 +28,11 @@ function getColleges(zip, radius) {
 
 function displayResults(responseJson) {
     $('.results-table').empty();
+    $('.banner').remove();
+    $('.user-inputs').remove();
+    $('.error-message').remove();
+    $('main').removeClass('home');
+    $('main').addClass('paper');
     console.log(responseJson);
     $('.results-table').append(
             `<tr>
@@ -64,11 +70,19 @@ function displayResults(responseJson) {
     $('.results').removeClass('hidden');
 }
 
-function initMap() {
+function initMap(responseJson) {
     map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 2,
-      center: new google.maps.LatLng(2.8,-187.3),
+      zoom: 9,
+      center: new google.maps.LatLng(responseJson.results[0]['location.lat'],responseJson.results[0]['location.lon']),
       mapTypeId: 'terrain'
+    });
+}
+
+function handleNewSearchButton() {
+    $('.results').on('click', '.new-search', event => {
+        console.log('test');
+        location.reload();
+    $('body').scrollTop( 0 );
     });
 }
 
@@ -81,4 +95,9 @@ function watchInput() {
     })
 }
 
-$(watchInput);
+function initiatePage() {
+    watchInput();
+    handleNewSearchButton();
+}
+
+$(initiatePage);
