@@ -147,7 +147,7 @@ input {
     padding-bottom: 2px;
     font-size: 14px;
     width: 6rem;
-    margin: 2% 0;
+    margin: 4% 0;
 }
 
 form button {
@@ -157,7 +157,7 @@ form button {
     font-family: 'Karla', sans-serif;
     font-size: 16px;
     display: block;
-    margin: 5px auto 0 auto;
+    margin: 5% auto 0 auto;
     border-radius: 8px;
     cursor: pointer;
     background-color: rgb(230, 230, 230);

@@ -27,12 +27,7 @@ function getColleges(zip, radius) {
 }
 
 function displayResults(responseJson) {
-    $('.results-table').empty();
-    $('.banner').remove();
-    $('.user-inputs').remove();
-    $('.error-message').remove();
-    $('main').removeClass('home');
-    $('main').addClass('paper');
+    formatResultsPage();
     console.log(responseJson);
     $('.results-table').append(
             `<tr>
@@ -53,6 +48,13 @@ function displayResults(responseJson) {
           position: latLng,
           map: map
         });
+        var contentString = `${responseJson.results[i]['school.name']}`;
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+        marker.addListener('click', function() {
+        infowindow.open(map, marker);
+        });
 
         $('.results-table').append(
             `<tr>
@@ -68,6 +70,15 @@ function displayResults(responseJson) {
             </tr>`
         )};
     $('.results').removeClass('hidden');
+}
+
+function formatResultsPage() {
+    $('.results-table').empty();
+    $('.banner').remove();
+    $('.user-inputs').remove();
+    $('.error-message').remove();
+    $('main').removeClass('home');
+    $('main').addClass('paper');
 }
 
 function initMap(responseJson) {
