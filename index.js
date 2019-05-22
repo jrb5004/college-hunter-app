@@ -49,12 +49,14 @@ function displayResults(responseJson) {
           map: map
         });
         var contentString = `${responseJson.results[i]['school.name']}`;
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-          });
-        marker.addListener('click', function() {
-        infowindow.open(map, marker);
-        });
+        var infowindow = new google.maps.InfoWindow()
+
+        google.maps.event.addListener(marker, 'click', ((marker, contentString, infowindow) => {
+            return () => {
+                infowindow.setContent(contentString);
+                infowindow.open(map, marker);
+            };
+        })(marker, contentString, infowindow));
 
         $('.results-table').append(
             `<tr>
@@ -82,6 +84,7 @@ function formatResultsPage() {
 }
 
 function initMap(responseJson) {
+    if (!responseJson) return;
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: 9,
       center: new google.maps.LatLng(responseJson.results[0]['location.lat'],responseJson.results[0]['location.lon']),
