@@ -63,12 +63,12 @@ function displayResults(responseJson) {
                 <th scope="row"><a href="http://${responseJson.results[i]['school.school_url']}" target="_blank">${responseJson.results[i]['school.name']}</a></th>
                 <td>${responseJson.results[i]['school.city']}, ${responseJson.results[i]['school.state']}</td>
                 <td>${convertToPercent(responseJson.results[i]['latest.admissions.admission_rate.overall'])}</td>
-                <td>${responseJson.results[i]['latest.admissions.sat_scores.average.overall']}</td>
-                <td>${responseJson.results[i]['latest.student.size']}</td>
-                <td>$${responseJson.results[i]['latest.cost.tuition.in_state']}</td>
-                <td>$${responseJson.results[i]['latest.cost.tuition.out_of_state']}</td>
+                <td>${formatScores(responseJson.results[i]['latest.admissions.sat_scores.average.overall'])}</td>
+                <td>${formatNumbers(responseJson.results[i]['latest.student.size'])}</td>
+                <td>${formatDollars(responseJson.results[i]['latest.cost.tuition.in_state'])}</td>
+                <td>${formatDollars(responseJson.results[i]['latest.cost.tuition.out_of_state'])}</td>
                 <td>${convertToPercent(responseJson.results[i]['latest.completion.rate_suppressed.four_year_100_pooled'])}</td>
-                <td>$${responseJson.results[i]['latest.earnings.6_yrs_after_entry.working_not_enrolled.mean_earnings']}</td>
+                <td>${formatDollars(responseJson.results[i]['latest.earnings.6_yrs_after_entry.working_not_enrolled.mean_earnings'])}</td>
             </tr>`
         )};
     $('.results').removeClass('hidden');
@@ -88,12 +88,29 @@ function convertToPercent(numberToConvert) {
     return `${(numberToConvert * 100).toFixed(0)}%`
  }
 
-/*
-function formatNumbers(numberToFormat) {
+
+function formatDollars(numberToFormat) {
+    if (numberToFormat === null) return 'NA'
+    else {
     let formattedNumber = numberToFormat.toLocaleString('en');
-    return formattedNumber;
+    return '$' + formattedNumber;
+    }
 }
-*/
+
+function formatNumbers(numberToFormat) {
+    if (numberToFormat === null) return 'NA'
+    else {
+    let formattedNumber = numberToFormat.toLocaleString('en');
+    return  formattedNumber;
+    }
+}
+
+function formatScores(scoreToFormat) {
+    if (scoreToFormat === null) return 'NA'
+    else {
+    return  scoreToFormat;
+    }
+}
 
 function initMap(responseJson) {
     if (!responseJson) return;
@@ -108,7 +125,7 @@ function handleNewSearchButton() {
     $('.results').on('click', '.new-search', event => {
         console.log('test');
         location.reload();
-    $('body').scrollTop( 0 );
+    $('html').scrollTop( 0 );
     });
 }
 
