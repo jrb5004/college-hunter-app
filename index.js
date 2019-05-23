@@ -64,11 +64,11 @@ function displayResults(responseJson) {
                 <td>${responseJson.results[i]['school.city']}, ${responseJson.results[i]['school.state']}</td>
                 <td>${convertToPercent(responseJson.results[i]['latest.admissions.admission_rate.overall'])}</td>
                 <td>${responseJson.results[i]['latest.admissions.sat_scores.average.overall']}</td>
-                <td>${formatNumbers(responseJson.results[i]['latest.student.size'])}</td>
-                <td>$${formatNumbers(responseJson.results[i]['latest.cost.tuition.in_state'])}</td>
-                <td>$${formatNumbers(responseJson.results[i]['latest.cost.tuition.out_of_state'])}</td>
+                <td>${responseJson.results[i]['latest.student.size']}</td>
+                <td>$${responseJson.results[i]['latest.cost.tuition.in_state']}</td>
+                <td>$${responseJson.results[i]['latest.cost.tuition.out_of_state']}</td>
                 <td>${convertToPercent(responseJson.results[i]['latest.completion.rate_suppressed.four_year_100_pooled'])}</td>
-                <td>$${formatNumbers(responseJson.results[i]['latest.earnings.6_yrs_after_entry.working_not_enrolled.mean_earnings'])}</td>
+                <td>$${responseJson.results[i]['latest.earnings.6_yrs_after_entry.working_not_enrolled.mean_earnings']}</td>
             </tr>`
         )};
     $('.results').removeClass('hidden');
@@ -84,15 +84,16 @@ function formatResultsPage() {
 }
 
 function convertToPercent(numberToConvert) {
-    let percentage = (numberToConvert * 100).toFixed(0) 
-    if (isNaN(percentage)) return 'NA'
-    else return percentage + '%'
-}
+    if (!numberToConvert || typeof numberToConvert !== 'number') return 'NA'
+    return `${(numberToConvert * 100).toFixed(0)}%`
+ }
 
+/*
 function formatNumbers(numberToFormat) {
-    let formattedNumber = numberToFormat.toLocaleString('en')
-    return formattedNumber
+    let formattedNumber = numberToFormat.toLocaleString('en');
+    return formattedNumber;
 }
+*/
 
 function initMap(responseJson) {
     if (!responseJson) return;
