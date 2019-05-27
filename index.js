@@ -71,7 +71,7 @@ function displayResults(responseJson) {
             </tr>`
         )};
     $('.results').removeClass('hidden');
-    $('html').scrollTop( 0 );
+    $('body').scrollTop( 0 );
 }
 
 function formatResultsPage() {
@@ -157,7 +157,7 @@ function watchInput() {
 function watchTitleClick() {
     $('h1').on('click', event => {
         location.reload();
-    $('html').scrollTop( 0 );
+    $('body').scrollTop( 0 );
     });
 }
 
