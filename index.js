@@ -18,11 +18,23 @@ function getColleges(zip, radius) {
         throw new Error(response.statusText);
     })
     .then(responseJson => {
+        if (!responseJson.results || responseJson.results.length <= 0) throw new Error('No results in this area.  Enter new zipcode or distance radius.');
         initMap(responseJson);
         displayResults(responseJson);
     })
     .catch(err => {
-        $('.error-message').text(`Something went wrong: ${err.message}`);
+        switch(err.message) {
+            case 'Failed to fetch':
+                $('.error-message').text(`Could not fetch results.  Check internet connection and try again.`);
+                break;
+            case 'Bad Request':
+                $('.error-message').text(`Invalid zip code or radius.  Please try again.`);
+                break;
+                default:
+            $('.error-message').text(`Something went wrong: ${err.message}`);
+                break;
+        }
+        $('.error-message').removeClass('hidden');
     });
 }
 
@@ -141,9 +153,17 @@ function watchInput() {
     })
 }
 
+function watchTitleClick() {
+    $('h1').on('click', event => {
+        location.reload();
+    $('html').scrollTop( 0 );
+    });
+}
+
 function initiatePage() {
     watchInput();
     handleNewSearchButton();
+    watchTitleClick();
 }
 
 $(initiatePage);

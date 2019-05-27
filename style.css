@@ -11,6 +11,10 @@ h1 {
     font-family: 'Anton', sans-serif;
 }
 
+h1:hover {
+    cursor: pointer;
+}
+
 main {
     background-color: rgb(230, 249, 255);
     padding-bottom: 5%;
@@ -52,13 +56,12 @@ overflow: hidden;
 .results-table {
 max-width: 100%;
 margin: 0 4%;
-padding: 2% 3%;
+
 border-radius: 2%;
 }
 
 td {
-    padding-left: 1.5%;
-    padding-right: 1.5%;
+    text-align: center;
 }
 
 tr th {
@@ -97,6 +100,14 @@ input {
 .error-message {
     color: red;
     font-weight: bold;
+    background-color: rgb(230, 249, 255, .7);
+    border: 2px rgb(0, 0, 128) solid;
+    border-radius: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 25%;
+    text-align: center;
+    padding: 1% 1%;
 }
 
 #map {
