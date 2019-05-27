@@ -35,6 +35,7 @@ function getColleges(zip, radius) {
                 break;
         }
         $('.error-message').removeClass('hidden');
+        $('html').scrollTop( 0 );
     });
 }
 
