@@ -8,15 +8,15 @@
         <link href="https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Karla|Permanent+Marker|Reenie+Beanie" rel="stylesheet">
     </head>
     <body>
-        <header>
+        <header role="banner">
             <h1>The College Hunter</h1>
             <div class="banner">
                 <h2 class="banner-heading top">With so many options to consider, choosing the right college for you can be <span class="overwhelm">overwhelming!</span></h2>
                 <h2 class="banner-heading bottom"><span class="college-hunter">The College Hunter</span> is here to help you find the perfect school in your desired region based on <span class="important">whats important to you.</span></h2>
             </div>    
         </header>
-        <main class="home">
-        <form class="user-inputs">
+        <main class="home" role="main">
+        <form class="user-inputs" role="form">
             <label for="city-zip">Enter zip code:</label>
             <input class="city-zip" placeholder="ex. 07110" type="text" required>
             <br>  
@@ -24,7 +24,7 @@
             <input class="miles-radius" type="number" value="10" required>
             <button type="submit" class="get-results">Find Colleges!</button>
         </form>
-        <section class="results hidden">
+        <section class="results hidden" role="contentinfo">
             <h3>View and Compare Colleges:</h3>
             <p class="map-instructions">Click map pin(s) for school names.</p>
             <div id="map"></div>
@@ -33,7 +33,7 @@
         </section>
         <p class="error-message hidden"></p>
         </main>
-        <footer><span class="name">Joseph Baragona, 2019</span><span class="contact">Feedback? <a href="mailto:jrb5004@gmail.com">Email</a> me!</span></footer>
+        <footer role="contentinfo"><span class="name">Joseph Baragona, 2019</span><span class="contact">Feedback? <a href="mailto:jrb5004@gmail.com">Email</a> me!</span></footer>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="index.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_sY_dRcWOXDYugaPqd7QDTbXviHFnLVc&callback=initMap"></script>
