@@ -35,7 +35,6 @@ function getColleges(zip, radius) {
                 break;
         }
         $('.error-message').removeClass('hidden');
-        $('html').scrollTop( 0 );
     });
 }
 
@@ -72,6 +71,7 @@ function displayResults(responseJson) {
             </tr>`
         )};
     $('.results').removeClass('hidden');
+    $('html').scrollTop( 0 );
 }
 
 function formatResultsPage() {
