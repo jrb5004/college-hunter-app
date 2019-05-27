@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     color: rgb(0, 0, 128);
@@ -40,17 +41,34 @@ header {
 .home {
 background: url(images/college1.jpg) center center;
 background-size: cover;
-min-height: 100vh;
+min-height: 90vh;
 overflow: hidden;
+}
+
+.results {
+    min-height: 90vh;
 }
 
 .results-table {
 background: url(images/paper.jpg) no-repeat center center;
 background-size: cover;
-overflow: hidden;
+max-width: 100%;
 margin: 0 4%;
 padding: 2% 3%;
 border-radius: 2%;
+}
+
+td {
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+}
+
+tr th {
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+  
 }
 
 a:visited {
@@ -78,24 +96,14 @@ input {
     display: none;
 }
 
-th {
-    text-align: left;
-    padding-right: 5px;
-}
-
-td {
-    padding-bottom: 15px;
-    padding-top: 15px;
-}
-
 .error-message {
     color: red;
     font-weight: bold;
 }
 
 #map {
-    height: 20vh;
-    width: 75%;
+    height: 20rem;
+    max-width: 95%;
     border: 1.5px rgb(0, 0, 128) solid;
     border-radius: 5px;
     margin-left: auto;
@@ -127,12 +135,11 @@ h1 {
     font-weight: bold;
     margin-left:auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 2%;
     padding: 1rem;
-    width: 40%;
-    background-color: rgb(230, 249, 255);
+    width: 80%;
+    background-color: rgb(230, 249, 255, .7);
     border-radius: 5px;
-    font-size: 22px;
 }
 
 input {
@@ -141,9 +148,9 @@ input {
     padding-left: 2px;
     padding-bottom: 2px;
     font-size: 14px;
-    width: 8rem;
+    width: 6rem;
     margin: 4% 0;
-    font-size: 22px;
+    font-size: 14px;
 }
 
 form button {
@@ -173,7 +180,7 @@ form button {
     background-color: rgb(230, 230, 230);
     border: 1px solid rgb(0, 0, 128);
     margin-top: 3%;
-    width: 15%;
+    width: 40%;
     font-size: 18px;
 }
 
@@ -205,15 +212,54 @@ footer {
     font-size: 20px;
 }
 
-.results {
-    height: 100vh;
+.table-wrapper {
+    display: block;
+    max-width: 98%;
+    overflow: scroll;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-@media screen and (min-width: 700px) {
-    .home {
-        min-height: 60rem;
-        }
+@media all and (min-width: 500px) {
+    .user-inputs {
+        width: 40%;
+    }
 
+    .new-search {
+        width: 25%;
+    }
+}
+
+@media all and (min-width: 800px) {
+    .user-inputs {
+        width: 30%;
+    }
+
+    #map {
+        max-width: 60%;
+    }
+
+    .new-search {
+        width: 15%;
+    }
+}
+
+    @media all and (min-width: 860px) {
+        .table-wrapper {
+            overflow: auto;
+        }
+}
+
+    @media all and (min-width: 1100px) {
+        .user-inputs {
+            width: 25%;
+        }
+        #map {
+                height: 30rem;
+            }
+}
+
+@media all and (min-width: 1200px) {
     .bottom {
         text-align: right;
         margin-top: .5rem;
@@ -224,44 +270,5 @@ footer {
         text-align: left;
         margin-bottom: .7rem;
     }
-
-    .banner-heading {
-        font-size: 22px;
-        padding: 0 .5rem;
-    }
-
-    .user-inputs {
-        border: 2px rgb(0, 0, 128) solid;
-        color: rgb(0, 0, 128);
-        font-weight: bold;
-        font-size: 16px;
-        margin-left:auto;
-        margin-right: auto;
-        margin-top: 2%;
-        padding: 1rem;
-        width: 20%;
-        background-color: rgb(230, 249, 255);
-        border-radius: 5px;
-    }
-
-    input {
-        border-radius: 8px;
-        background-color: rgb(242, 242, 242);
-        padding-left: 2px;
-        padding-bottom: 2px;
-        font-size: 14px;
-        width: 6rem;
-        margin: 4% 0;
-        font-size: 14px;
-    }
-
-    #map {
-        height: 60vh;
-        width: 55%;
-    }
-
-    .results {
-        height: auto;
-    }
-
 }
+

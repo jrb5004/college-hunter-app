@@ -43,20 +43,7 @@ function displayResults(responseJson) {
             </tr>`)
     for (let i = 0; i < responseJson.results.length; i++) {
 
-        var latLng = new google.maps.LatLng(responseJson.results[i]['location.lat'],responseJson.results[i]['location.lon']);
-        var marker = new google.maps.Marker({
-          position: latLng,
-          map: map
-        });
-        var contentString = `${responseJson.results[i]['school.name']}`;
-        var infowindow = new google.maps.InfoWindow()
-
-        google.maps.event.addListener(marker, 'click', ((marker, contentString, infowindow) => {
-            return () => {
-                infowindow.setContent(contentString);
-                infowindow.open(map, marker);
-            };
-        })(marker, contentString, infowindow));
+        createMarker(responseJson.results[i]['location.lat'], responseJson.results[i]['location.lon'], `${responseJson.results[i]['school.name']}`);
 
         $('.results-table').append(
             `<tr>
@@ -83,14 +70,30 @@ function formatResultsPage() {
     $('main').addClass('paper');
 }
 
+function createMarker(lat, lon, contentString) {
+    var latLng = new google.maps.LatLng(lat, lon);
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: map
+    });
+    var infowindow = new google.maps.InfoWindow()
+
+    google.maps.event.addListener(marker, 'click', ((marker, contentString, infowindow) => {
+        return () => {
+            infowindow.setContent(contentString);
+            infowindow.open(map, marker);
+        };
+    })(marker, contentString, infowindow));
+}
+
 function convertToPercent(numberToConvert) {
-    if (!numberToConvert || typeof numberToConvert !== 'number') return 'NA'
-    return `${(numberToConvert * 100).toFixed(0)}%`
+    if (!numberToConvert || typeof numberToConvert !== 'number') return 'NA';
+    return `${(numberToConvert * 100).toFixed(0)}%`;
  }
 
 
 function formatDollars(numberToFormat) {
-    if (numberToFormat === null) return 'NA'
+    if (numberToFormat === null) return 'NA';
     else {
     let formattedNumber = numberToFormat.toLocaleString('en');
     return '$' + formattedNumber;
@@ -98,7 +101,7 @@ function formatDollars(numberToFormat) {
 }
 
 function formatNumbers(numberToFormat) {
-    if (numberToFormat === null) return 'NA'
+    if (numberToFormat === null) return 'NA';
     else {
     let formattedNumber = numberToFormat.toLocaleString('en');
     return  formattedNumber;
@@ -106,7 +109,7 @@ function formatNumbers(numberToFormat) {
 }
 
 function formatScores(scoreToFormat) {
-    if (scoreToFormat === null) return 'NA'
+    if (scoreToFormat === null) return 'NA';
     else {
     return  scoreToFormat;
     }

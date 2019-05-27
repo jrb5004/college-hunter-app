@@ -2,7 +2,9 @@
 <html lang="en">
     <head>
         <title>College Hunter</title>
+        <meta name="description" content="An app to search for colleges within selected region">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Karla|Permanent+Marker|Reenie+Beanie" rel="stylesheet">
     </head>
     <body>
@@ -26,13 +28,12 @@
             <h3>View and Compare Colleges:</h3>
             <p class="map-instructions">Click map pin(s) for school names.</p>
             <div id="map"></div>
-            <table class="results-table">
-            </table>
+            <div class="table-wrapper"><table class="results-table"></table></div>
             <button type="submit" class="new-search">New Search</button>
         </section>
         <p class="error-message"></p>
         </main>
-        <footer><span class="name">Joseph Baragona, 2019</span><span class="contact"><a href="mailto:jrb5004@gmail.com">Email</a> me with feedback!</span></footer>
+        <footer><span class="name">Joseph Baragona, 2019</span><span class="contact">Feedback? <a href="mailto:jrb5004@gmail.com">Email</a> me!</span></footer>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="index.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_sY_dRcWOXDYugaPqd7QDTbXviHFnLVc&callback=initMap"></script>
